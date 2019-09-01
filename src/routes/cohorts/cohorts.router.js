@@ -1,10 +1,10 @@
 const express = require('express');
 
-const { getCohortsController } = require("./cohorts.controller");
+const { getCohortsTypeController } = require("./cohorts.controller");
 
 const router = express.Router();
 
-router.get("", getCohortsController);
+router.get("", getCohortsTypeController);
 
 module.exports = {
   cohortsRouter: router
