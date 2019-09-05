@@ -29,6 +29,8 @@ jobs:
       - run:
           name: Run Tests
           command: npm run test
+          environment: 
+            NODE_ENV: testing
       - persist_to_workspace:
           root: /home/circleci/project
           paths:
