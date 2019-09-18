@@ -1,16 +1,28 @@
 const express = require('express');
 
 const { 
-  getCohortsTypeController, 
-  getCohortDetailsController 
+  getCohortsTypeController,
+  getIndividualCohortController,
 } = require("./cohorts.controller");
 
 const router = express.Router();
 
 router.get("", getCohortsTypeController);
 
-router.get("/cohort-details", getCohortDetailsController);
+router.get("/cohortdetails", getIndividualCohortController);
 
 module.exports = {
-  cohortRouter: router
+  cohortsRouter: router
 }
+
+// const express = require('express');
+
+// const { getCohortsTqypeController } = require("./cohorts.controller");
+
+// const router = express.Router();
+
+// router.get("", getCohortsTypeController);
+
+// module.exports = {
+//   cohortsRouter: router
+// }
