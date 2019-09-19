@@ -17,11 +17,16 @@ logger.info("🤖 Initializing middleware");
 // This piece of middleware creates the logs that you see when
 // you hit an endpoint in your terminal. It's here to help you debug.
 app.use(morgan("tiny", { stream: logger.stream }));
-app.use(
-  cors({
-    origin: `http://${process.env.PROJECT_NAME}-frontend.bridgeschoolapp.io`
-  })
-);
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", `http://${process.env.PROJECT_NAME}-frontend.bridgeschoolapp.io`);
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+// app.use(
+//   cors({
+//     origin: `http://${process.env.PROJECT_NAME}-frontend.bridgeschoolapp.io`
+//   })
+// );
 app.use("/", router);
 app.use(errorHandler);
 
